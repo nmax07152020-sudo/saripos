@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="SariPOS — offline point of sale system for sari-sari stores and small businesses.">
+  <meta property="og:title" content="SariPOS — Offline POS for Small Stores">
+  <meta property="og:description" content="Sell, manage inventory, track cashiers, view reports and activate SariPOS offline.">
+  <meta property="og:type" content="website">
+  <title>SariPOS — Offline POS for Small Stores</title>
+  <link rel="icon" type="image/png" href="assets/saripos_logo.png">
+  <style>
+    :root{
+      --bg:#07111f; --panel:#0d1a2b; --panel2:#102238; --line:rgba(255,255,255,.10);
+      --text:#eef5ff; --muted:#9db0c8; --primary:#ffb000; --primary2:#ff6b35;
+      --green:#44e19b; --shadow:0 24px 70px rgba(0,0,0,.32); --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+      radial-gradient(circle at 15% 0%,rgba(255,176,0,.18),transparent 28%),
+      radial-gradient(circle at 90% 10%,rgba(255,107,53,.15),transparent 25%),
+      linear-gradient(180deg,#07111f 0%,#091728 50%,#07111f 100%);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .navin{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px;letter-spacing:-.02em}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:12px;box-shadow:0 10px 24px rgba(255,176,0,.17)}
+    .navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px;font-weight:700}
+    .navlinks a:hover{color:#fff}
+    .navcta{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border-radius:12px;background:#fff;color:#0b1320;font-weight:900;font-size:14px}
+    .hero{padding:88px 0 72px}
+    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 11px;border:1px solid rgba(255,176,0,.28);background:rgba(255,176,0,.09);color:#ffd77d;border-radius:999px;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    h1{font-size:clamp(46px,7vw,78px);line-height:.98;letter-spacing:-.055em;margin:18px 0 20px;max-width:760px}
+    .hero p{font-size:19px;color:var(--muted);max-width:660px;margin:0 0 28px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:14px;font-weight:900;border:1px solid var(--line);transition:.2s transform,.2s background}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#15110a;border:none;box-shadow:0 14px 34px rgba(255,138,44,.24)}
+    .btn.ghost{background:rgba(255,255,255,.045)}
+    .heroCard{position:relative}
+    .device{padding:18px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border-radius:30px;box-shadow:var(--shadow);transform:rotate(1.2deg)}
+    .deviceTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;color:#b8c7da;font-size:12px;font-weight:800}
+    .mock{border-radius:21px;min-height:390px;background:linear-gradient(180deg,#f7f9fc,#eef2f7);padding:18px;color:#192233;overflow:hidden}
+    .mockHead{display:flex;align-items:center;gap:10px}.mockHead img{width:44px;height:44px;border-radius:13px}.mockHead b{font-size:17px}.mockHead span{display:block;font-size:11px;color:#788598}
+    .dash{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.dash .tile{background:#fff;border:1px solid #e4e9f0;border-radius:15px;padding:13px}.tile small{color:#8190a4;display:block;font-weight:800}.tile strong{font-size:22px;display:block;margin-top:4px}
+    .chart{margin-top:10px;background:#fff;border:1px solid #e4e9f0;border-radius:15px;padding:14px}.bars{display:flex;align-items:flex-end;height:120px;gap:12px}.bar{flex:1;border-radius:8px 8px 2px 2px;background:linear-gradient(180deg,#ffb000,#ff6b35)}
+    section{padding:82px 0}.sectionHead{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}.sectionHead h2{font-size:38px;letter-spacing:-.04em;margin:0}.sectionHead p{color:var(--muted);max-width:560px;margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px}.icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,176,0,.12);font-size:22px;margin-bottom:16px}.card h3{margin:0 0 7px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .band{background:linear-gradient(135deg,rgba(255,176,0,.12),rgba(255,107,53,.08));border:1px solid rgba(255,176,0,.17);border-radius:26px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.band h3{margin:0 0 6px;font-size:27px}.band p{margin:0;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.num{font-size:12px;font-weight:900;color:#ffcc67}.step h3{margin:8px 0 7px}.step p{margin:0;color:var(--muted);font-size:14px}
+    .license{display:grid;grid-template-columns:1fr 1fr;gap:16px}.license .big{padding:28px;border-radius:22px;background:linear-gradient(145deg,#101e31,#0b1727);border:1px solid var(--line)}
+    .list{margin:16px 0 0;padding:0;list-style:none}.list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#c9d5e3}.list li:last-child{border-bottom:0}.check{color:var(--green);margin-right:8px}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}.faq details{border:1px solid var(--line);border-radius:16px;padding:15px 17px;background:rgba(255,255,255,.03)}summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);font-size:14px;margin:11px 0 0}
+    footer{padding:34px 0 50px;border-top:1px solid var(--line);color:var(--muted)}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.small{font-size:12px}
+    .fbFloat{position:fixed;right:20px;bottom:20px;z-index:30;padding:13px 16px;border-radius:999px;background:#fff;color:#0d1a2b;font-weight:900;box-shadow:0 18px 36px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.08)}
+    .note{font-size:12px;color:#8091a8;margin-top:9px}
+    @media(max-width:900px){.heroGrid,.license{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero{padding-top:55px}}
+    @media(max-width:640px){.wrap{width:min(100% - 22px,1180px)}.hero{padding:45px 0}.hero p{font-size:17px}.features,.steps,.faq{grid-template-columns:1fr}.sectionHead{display:block}.sectionHead h2{font-size:32px;margin-bottom:10px}.band{grid-template-columns:1fr}.navcta{display:none}.foot{display:block}.foot > * + *{margin-top:8px}.fbFloat{right:12px;bottom:12px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top"><img src="assets/saripos_logo.png" alt="SariPOS logo"><span>SariPOS</span></a>
+      <div class="navlinks"><a href="#features">Features</a><a href="#how">How it works</a><a href="#license">License</a><a href="#faq">FAQ</a></div>
+      <a class="navcta" href="downloads/SariPOS.apk" download>Download APK</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <span class="eyebrow">Offline • Android • Small Business</span>
+          <h1>Simple POS.<br><span style="color:#ffc24b">Built for your store.</span></h1>
+          <p>SariPOS is an offline point-of-sale system designed for sari-sari stores and small businesses. Sell faster, manage products, track cashiers, and keep your daily records in one place.</p>
+          <div class="actions">
+            <a class="btn primary" href="downloads/SariPOS.apk" download>⬇ Download SariPOS for Android</a>
+            <a class="btn ghost" href="#license">🔐 Get a License</a>
+          </div>
+          <div class="note">The Android app includes an offline trial and device-based license activation.</div>
+        </div>
+        <div class="heroCard">
+          <div class="device">
+            <div class="deviceTop"><span>SariPOS</span><span>Offline POS</span></div>
+            <div class="mock">
+              <div class="mockHead"><img src="assets/saripos_logo.png" alt="SariPOS"><div><b>SariPOS</b><span>Point of Sale Dashboard</span></div></div>
+              <div class="dash"><div class="tile"><small>Today's Sales</small><strong>₱12,450</strong></div><div class="tile"><small>Transactions</small><strong>128</strong></div><div class="tile"><small>Products</small><strong>356</strong></div><div class="tile"><small>Low Stock</small><strong>7</strong></div></div>
+              <div class="chart"><small style="color:#8190a4;font-weight:800">Sales Overview</small><div class="bars"><div class="bar" style="height:44%"></div><div class="bar" style="height:61%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:91%"></div><div class="bar" style="height:74%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="sectionHead"><div><h2>Everything you need at the counter.</h2></div><p>Designed to stay practical: fast checkout, clear records, and tools that make day-to-day store operations easier.</p></div>
+        <div class="features">
+          <article class="card"><div class="icon">🧾</div><h3>Point of Sale</h3><p>Process sales quickly with a cashier-friendly checkout flow and local transaction records.</p></article>
+          <article class="card"><div class="icon">📦</div><h3>Inventory</h3><p>Manage products, categories, stock quantities, pricing, and unit or kilo-based items.</p></article>
+          <article class="card"><div class="icon">📊</div><h3>Reports</h3><p>Review transactions and sales summaries, including Total Sales by Category.</p></article>
+          <article class="card"><div class="icon">👥</div><h3>Cashier Accounts</h3><p>Create cashier accounts, manage access, and keep sales history intact when accounts change.</p></article>
+          <article class="card"><div class="icon">💳</div><h3>GCash Support</h3><p>Store your GCash details locally so the cashier can show payment information during checkout.</p></article>
+          <article class="card"><div class="icon">🔐</div><h3>Offline Licensing</h3><p>Activate SariPOS using a device-bound license code without requiring a cloud login.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="sectionHead"><div><h2>Start in four steps.</h2></div><p>A simple path from download to activation.</p></div>
+        <div class="steps">
+          <div class="step"><div class="num">01</div><h3>Download</h3><p>Download the SariPOS Android APK from this website.</p></div>
+          <div class="step"><div class="num">02</div><h3>Install</h3><p>Install SariPOS on your Android device and open the app.</p></div>
+          <div class="step"><div class="num">03</div><h3>Get your Device ID</h3><p>Open SariPOS License in Settings and copy your device ID.</p></div>
+          <div class="step"><div class="num">04</div><h3>Activate</h3><p>Message us through Facebook to avail a license and receive your activation code.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="license">
+      <div class="wrap">
+        <div class="sectionHead"><div><h2>Need the full license?</h2></div><p>Your app can run offline. License activation is tied to the SariPOS Device ID shown inside the app.</p></div>
+        <div class="license">
+          <div class="big">
+            <h3 style="margin-top:0;font-size:28px">SariPOS Offline License</h3>
+            <ul class="list">
+              <li><span class="check">✓</span>Device-bound activation</li>
+              <li><span class="check">✓</span>Offline verification</li>
+              <li><span class="check">✓</span>Compact 16-character license code</li>
+              <li><span class="check">✓</span>Use the app without an internet connection</li>
+            </ul>
+            <div style="margin-top:20px"><a class="btn primary" id="fbLicenseBtn" href="https://www.facebook.com/erwin.alincastre.2024/">💬 Avail License on Facebook</a></div>
+            <div class="note">Replace the Facebook link in the CONFIG section of this file with your actual Facebook page or Messenger link.</div>
+          </div>
+          <div class="big">
+            <h3 style="margin-top:0;font-size:24px">What to send us</h3>
+            <p style="color:var(--muted)">When requesting a license, send your store details and the SariPOS Device ID shown in the app.</p>
+            <div class="card" style="margin-top:14px;background:rgba(255,255,255,.025)"><b>Example</b><div style="margin-top:8px;color:#c7d4e4;font-family:ui-monospace,monospace;font-size:13px">Store: Juan's Sari-Sari Store<br>Owner: Juan Dela Cruz<br>Device ID: SP-XXXXXXXXXXXX</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="sectionHead"><div><h2>Frequently asked questions.</h2></div><p>Useful details before you install.</p></div>
+        <div class="faq">
+          <details><summary>Does SariPOS work offline?</summary><p>Yes. The current Android build is designed for local/offline operation. Internet is not required for normal POS use.</p></details>
+          <details><summary>Where is my business data stored?</summary><p>The current Android build keeps its POS data locally on the device.</p></details>
+          <details><summary>How do I get a license?</summary><p>Install the app, copy your SariPOS Device ID from Settings, then message us through Facebook for license activation.</p></details>
+          <details><summary>Can I use this for different stores?</summary><p>Yes. Each installation can be managed using its own SariPOS Device ID and corresponding license record.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="fbFloat" id="fbFloat" href="#">💬 Facebook</a>
+  <footer><div class="wrap foot"><div><strong style="color:#fff">SariPOS</strong><div class="small">Offline Point of Sale for sari-sari stores and small businesses.</div></div><div class="small">© <span id="year"></span> SariPOS. All rights reserved.</div></div></footer>
+
+  <script>
+    /* =============================
+       SariPOS Website CONFIG
+       ============================= */
+    const CONFIG = {
+      FACEBOOK_URL: 'https://www.facebook.com/erwin.alincastre.2024/',
+      APP_NAME: 'SariPOS',
+      APK_URL: 'downloads/SariPOS.apk'
+    };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    ['fbLicenseBtn','fbFloat'].forEach(id => document.getElementById(id).href = CONFIG.FACEBOOK_URL);
+  </script>
+</body>
+</html>
