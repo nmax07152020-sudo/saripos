@@ -59,6 +59,7 @@
     .fbFloat{position:fixed;right:20px;bottom:20px;z-index:30;padding:13px 16px;border-radius:999px;background:#fff;color:#0d1a2b;font-weight:900;box-shadow:0 18px 36px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.08)}
     .note{font-size:12px;color:#8091a8;margin-top:9px}
     @media(max-width:900px){.heroGrid,.license{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero{padding-top:55px}}
+    .spec{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.spec>div{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:12px}.spec b{display:block;font-size:13px}.spec span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
     @media(max-width:640px){.wrap{width:min(100% - 22px,1180px)}.hero{padding:45px 0}.hero p{font-size:17px}.features,.steps,.faq{grid-template-columns:1fr}.sectionHead{display:block}.sectionHead h2{font-size:32px;margin-bottom:10px}.band{grid-template-columns:1fr}.navcta{display:none}.foot{display:block}.foot > * + *{margin-top:8px}.fbFloat{right:12px;bottom:12px}}
   </style>
 </head>
@@ -66,7 +67,7 @@
   <nav class="nav">
     <div class="wrap navin">
       <a class="brand" href="#top"><img src="assets/saripos_logo.png" alt="SariPOS logo"><span>SariPOS</span></a>
-      <div class="navlinks"><a href="#features">Features</a><a href="#how">How it works</a><a href="#license">License</a><a href="#faq">FAQ</a></div>
+      <div class="navlinks"><a href="#platforms">Download</a><a href="#features">Features</a><a href="#how">How it works</a><a href="#license">License</a><a href="#faq">FAQ</a></div>
       <a class="navcta" href="downloads/SariPOS.apk" download>Download APK</a>
     </div>
   </nav>
@@ -93,6 +94,25 @@
               <div class="chart"><small style="color:#8190a4;font-weight:800">Sales Overview</small><div class="bars"><div class="bar" style="height:44%"></div><div class="bar" style="height:61%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:66%"></div><div class="bar" style="height:91%"></div><div class="bar" style="height:74%"></div></div></div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platforms" style="padding-top:20px">
+      <div class="wrap">
+        <div class="sectionHead"><div><h2>Choose your SariPOS platform.</h2></div><p>One SariPOS experience for Android devices and Windows laptops or PCs.</p></div>
+        <div class="features" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <article class="card" style="padding:28px">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><img src="assets/saripos_logo.png" alt="SariPOS Android" style="width:54px;height:54px;object-fit:contain;border-radius:14px"><div><div class="eyebrow" style="font-size:10px;padding:5px 9px">MOBILE</div><h3 style="margin:8px 0 0;font-size:25px">SariPOS for Android</h3></div></div>
+            <p>Portable point-of-sale built for Android phones and tablets. Includes offline POS, inventory, reports, cashier management, 7-day trial, and device-bound license activation.</p>
+            <div class="actions" style="margin-top:18px"><a class="btn primary" href="downloads/SariPOS.apk" download>⬇ Download Android APK</a><a class="btn ghost" href="#license">🔐 License</a></div>
+          </article>
+          <article class="card" style="padding:28px">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><img src="assets/saripos_logo.png" alt="SariPOS Windows" style="width:54px;height:54px;object-fit:contain;border-radius:14px"><div><div class="eyebrow" style="font-size:10px;padding:5px 9px">WINDOWS</div><h3 style="margin:8px 0 0;font-size:25px">SariPOS for Windows PC — Portable V8 • ZIP</h3></div></div>
+            <p>Portable desktop POS for Windows laptops and PCs. No installer required. This is the SariPOS Windows Portable V8 • ZIP release. Download, open SariPOS.exe, sign in, and start managing your store offline.</p>
+            <div class="spec" style="margin-top:16px"><div><b>Windows 10/11</b><span>64-bit desktop</span></div><div><b>Portable</b><span>No installation</span></div><div><b>7-day trial</b><span>License activation</span></div></div>
+            <div class="actions" style="margin-top:18px"><a class="btn primary" href="downloads/SariPOS-Windows-Portable-V8.zip" download>⬇ Download for Windows</a><a class="btn ghost" href="#license">🔐 License</a></div>
+          </article>
         </div>
       </div>
     </section>
@@ -135,7 +155,7 @@
               <li><span class="check">✓</span>Compact 16-character license code</li>
               <li><span class="check">✓</span>Use the app without an internet connection</li>
             </ul>
-            <div style="margin-top:20px"><a class="btn primary" id="fbLicenseBtn" href="https://www.facebook.com/erwin.alincastre.2024/">💬 Avail License on Facebook</a></div>
+            <div style="margin-top:20px"><a class="btn primary" id="fbLicenseBtn" href="#">💬 Avail License on Facebook</a></div>
             <div class="note">Replace the Facebook link in the CONFIG section of this file with your actual Facebook page or Messenger link.</div>
           </div>
           <div class="big">
@@ -151,8 +171,8 @@
       <div class="wrap">
         <div class="sectionHead"><div><h2>Frequently asked questions.</h2></div><p>Useful details before you install.</p></div>
         <div class="faq">
-          <details><summary>Does SariPOS work offline?</summary><p>Yes. The current Android build is designed for local/offline operation. Internet is not required for normal POS use.</p></details>
-          <details><summary>Where is my business data stored?</summary><p>The current Android build keeps its POS data locally on the device.</p></details>
+          <details><summary>Does SariPOS work offline?</summary><p>Yes. SariPOS is designed for local/offline POS use. The Android and Windows versions keep their day-to-day POS data locally on the device or PC.</p></details>
+          <details><summary>Where is my business data stored?</summary><p>The current Android and Windows builds keep POS data locally. No cloud account is required for normal offline use.</p></details>
           <details><summary>How do I get a license?</summary><p>Install the app, copy your SariPOS Device ID from Settings, then message us through Facebook for license activation.</p></details>
           <details><summary>Can I use this for different stores?</summary><p>Yes. Each installation can be managed using its own SariPOS Device ID and corresponding license record.</p></details>
         </div>
@@ -170,7 +190,8 @@
     const CONFIG = {
       FACEBOOK_URL: 'https://www.facebook.com/erwin.alincastre.2024/',
       APP_NAME: 'SariPOS',
-      APK_URL: 'downloads/SariPOS.apk'
+      APK_URL: 'downloads/SariPOS.apk',
+      WINDOWS_URL: 'downloads/SariPOS-Windows-Portable-V8.zip'
     };
 
     document.getElementById('year').textContent = new Date().getFullYear();

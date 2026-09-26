@@ -1,28 +1,17 @@
-SariPOS Website V1
-==================
+SariPOS Website V4 — Android + Windows
 
-Files:
-- index.html              Main landing page
-- assets/saripos_logo.png SariPOS logo
-- downloads/SariPOS.apk  Current Android APK
+IMPORTANT WINDOWS DOWNLOAD NOTE
+The current SariPOS Windows Portable V8 build is a portable folder app, not a self-contained single EXE.
+The website therefore distributes the COMPLETE Windows ZIP package.
 
-Before publishing:
-1. Open index.html.
-2. Find:
-   FACEBOOK_URL: 'https://www.facebook.com/YOUR_SARIPOS_PAGE'
-3. Replace it with your actual Facebook page or Messenger URL.
+Client steps:
+1. Download "SariPOS Windows Portable V8"
+2. Extract the ZIP as a whole folder
+3. Open SariPOS.exe inside the extracted folder
 
-GitHub:
-- Create a repository.
-- Upload all files in this folder, including downloads/SariPOS.apk.
+Do not move SariPOS.exe out of its folder because it needs the sibling app/ and assets/ folders.
 
-Vercel:
-- Import the GitHub repository into Vercel.
-- Framework Preset: Other / static site.
-- Build Command: leave blank.
-- Output Directory: leave blank / repository root.
-- Deploy.
-
-Updating the APK later:
-- Replace downloads/SariPOS.apk with the new APK.
-- Keep the same filename so the website button does not need to change.
+GitHub/Vercel:
+- Upload the contents of this folder to the repository.
+- No build command is required.
+- vercel.json may be omitted for the ZIP download, but can remain.
